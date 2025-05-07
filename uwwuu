@@ -1,0 +1,19 @@
+import math
+def simple_iteration(x0, tol=1e-6, max_iter=100):
+    def phi(x):
+        return math.atan(x)
+
+    x_prev = x0
+    for i in range(max_iter):
+        x_next = phi(x_prev)
+        if abs(x_next - x_prev) < tol:
+            print(f"Təqribi kök: {x_next:.6f}, Iterasiya sayı: {i+1}")
+            return x_next
+        x_prev = x_next
+
+    print("Maksimum iterasiya sayı aşdı.")
+    return x_next
+
+
+x0 = 1.0
+simple_iteration(x0)
